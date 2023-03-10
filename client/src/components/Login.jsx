@@ -1,12 +1,12 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import React, { useEffect } from "react";
+import { LoginBg } from "../assets/video";
 import { FcGoogle } from "react-icons/fc";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from "../config/firebase.config";
 import { useNavigate } from "react-router-dom";
 import { validateUser } from "../api";
-import { LoginBg } from "../assets/video";
-import { app } from "../config/firebase.config";
-import { actionType } from '../Context/reducer';
-import { useStateValue } from '../Context/StateProvider';
+import { actionType } from "../Context/reducer";
+import { useStateValue } from "../Context/StateProvider";
 
 const Login = ({ setAuth }) => {
   const firebaseAuth = getAuth(app);

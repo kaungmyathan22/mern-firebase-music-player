@@ -6,7 +6,8 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { validateUser } from "./api";
 import {
-  Home, Login
+  Dashboard,
+  Home, Loader, Login, UserProfile
 } from "./components";
 import { app } from "./config/firebase.config";
 import { actionType } from './Context/reducer';
@@ -53,17 +54,17 @@ function App () {
   return (
     <AnimatePresence>
       <div className="h-auto flex items-center justify-center min-w-[680px]">
-        {/* {isLoading ||
+        {isLoading ||
           (!user && (
             <div className="fixed inset-0 bg-loaderOverlay backdrop-blur-sm ">
               <Loader />
             </div>
-          ))} */}
+          ))}
         <Routes>
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/*" element={<Home />} />
-          {/* <Route path="/dashboard/*" element={<Dashboard />} />
-          <Route path="/userProfile" element={<UserProfile />} /> */}
+          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/userProfile" element={<UserProfile />} />
         </Routes>
 
         {/* {isSongPlaying && (
